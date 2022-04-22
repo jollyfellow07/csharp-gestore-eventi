@@ -12,14 +12,14 @@ namespace GestoreEventi
         public DateTime dataEvento { get; set; }
 
         public readonly int postiTotali = 150;
-        public readonly int postiprenotati = 0;
+        public int postiPrenotati = 0;
         public int postiADisposizione;
 
                                     /******   COSTRUTTORE  *********/
         public Evento(string titolo, DateTime dataEvento, int postiADisposizione)
         {
            this.titolo=titolo;
-
+            this.postiADisposizione=postiADisposizione;
             
             try
             {
@@ -41,7 +41,12 @@ namespace GestoreEventi
             }
         }
 
-                                    /********  SETTER & GETTER    ******/
+        /********  SETTER & GETTER    ******/
+
+        public int GetPostiPrenotati()
+        {
+            return postiPrenotati;
+        }
         public void SetTitolo()
         {
             if (titolo == null)
@@ -69,6 +74,7 @@ namespace GestoreEventi
             {
                 throw new ArgumentOutOfRangeException("postiADisposizione ", " non può essere un valore negativo");
             }
+          
         }
                                         /******METODI*******/
                                         
@@ -95,6 +101,7 @@ namespace GestoreEventi
             } while (postiADisposizione < 0);
             return postiADisposizione;
         }
+        
         public DateTime CambioDataEvento()
         {
             do
@@ -117,6 +124,26 @@ namespace GestoreEventi
 
             } while (dataEvento < DateTime.Now);
             return dataEvento;
+        }
+
+        public int prenotaPosti()
+        {
+            int posti;
+            Console.Write("Inserisci quanti posti vuoi prenotare? : ");
+            posti = int.Parse(Console.ReadLine());
+            if (postiPrenotati < postiADisposizione && posti < postiADisposizione)
+            {
+                postiPrenotati += posti;
+                Console.WriteLine("I posti attualmente disponibili sono: " + (postiADisposizione-postiPrenotati));
+            }else if (posti < 0)
+            {
+                throw new ArgumentOutOfRangeException("posti", "non puo avere un valore negativo");
+            }
+            else
+            {
+                Console.WriteLine("mi dispiace i posti che vuoi prenotare non sono disponibili!");
+            }
+            return postiPrenotati;
         }
     }
     
