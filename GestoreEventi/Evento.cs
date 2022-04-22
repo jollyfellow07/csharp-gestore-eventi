@@ -239,7 +239,7 @@ namespace GestoreEventi
         {
             string rappresentazioneInStringa = "";
             Console.OutputEncoding = System.Text.Encoding.UTF8;
-            rappresentazioneInStringa += "\n" + dataEvento.ToString("dd/MM/yyyy") + " - " + titolo;
+            rappresentazioneInStringa += "\t" + dataEvento.ToString("dd/MM/yyyy") + " - " + titolo + "\n";
             return rappresentazioneInStringa;
         }
     }

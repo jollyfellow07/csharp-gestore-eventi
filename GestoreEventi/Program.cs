@@ -12,6 +12,7 @@ Console.Write("Capienza massima di persone che possono entrare: ");
 capienzaEvento = int.Parse(Console.ReadLine());
 
 Evento cantante = new Evento(nomeEvento, dataDellEvento, capienzaEvento);
+Evento teatro = new Evento("teatro", DateTime.Parse("28/12/2022"), 800);
 try
 {
     cantante.prenotaPosti();
@@ -32,3 +33,8 @@ catch (ArgumentOutOfRangeException e)
 
 }
 
+ProgrammaEventi eventi = new ProgrammaEventi("Tour dei balocchi");
+eventi.AggiungiEvento(cantante);
+eventi.AggiungiEvento(teatro);
+eventi.ContatoreEventi();
+eventi.StampaListaEventi();

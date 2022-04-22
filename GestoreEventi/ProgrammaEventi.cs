@@ -8,13 +8,38 @@ namespace GestoreEventi
 {
     internal class ProgrammaEventi
     {
-        string titolo;
-        List<Evento> eventi = new List<Evento>();
-
-        public ProgrammaEventi(string titolo, List<Evento> eventi)
+       private string titolo;
+       private List<Evento> eventi = new List<Evento>();
+                            /*COSTRUTTORE*/
+        public ProgrammaEventi(string titolo)
         {
             this.titolo = titolo;
-            this.eventi = eventi;
+            
         }
+                            /******METODI******/
+        public void AggiungiEvento(Evento evento1)
+        {
+            eventi.Add(evento1);
+        }
+
+        //ricontrollare metodo statico
+        public void StampaListaEventi()
+        {
+            Console.WriteLine("Programma Evento: " + titolo);
+            foreach(Evento eventoNellaLista in eventi)
+            {
+                Console.Write(eventoNellaLista);
+            }
+        }
+        public void ContatoreEventi()
+        {
+            int i;
+            for(i = 0 ; i < eventi.Count; i++)
+            {
+
+            }
+            Console.WriteLine("Nella lista sono presenti " + ( i ) + " event*");
+        }
+
     }
 }
