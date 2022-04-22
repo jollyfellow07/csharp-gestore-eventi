@@ -9,7 +9,7 @@ namespace GestoreEventi
     internal class Conferenza : Evento
     {
         private string relatore { get; set; }
-        public double prezzo { get; set; }
+        private double prezzo { get; set; }
         
         public Conferenza(string titolo, DateTime dataEvento, int postiADisposizione, string relatore, double prezzo) : base(titolo, dataEvento, postiADisposizione)
         {

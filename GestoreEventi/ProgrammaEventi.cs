@@ -21,7 +21,15 @@ namespace GestoreEventi
         public void aggiungiPiuEventi()
         {
             Console.WriteLine("Quanti eventi vuoi aggiungere?");
-            int numeroEventi = int.Parse(Console.ReadLine());
+            int numeroEventi = 0;
+            try
+            {
+                numeroEventi = int.Parse(Console.ReadLine());
+            } catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
 
 
 
@@ -31,19 +39,38 @@ namespace GestoreEventi
                 {
 
                     
-                    Console.WriteLine("Inserisci il nome del " + (i + 1) + "° evento:");
+                    Console.Write("Inserisci il nome del " + (i + 1) + "° evento:");
                     string nome;
                     nome = Console.ReadLine();
 
-                    Console.WriteLine("Inserisci la data dell'evento (gg/mm/yyyy): ");
-                    DateTime dataPerAppuntamento = DateTime.Parse(Console.ReadLine()); ;
+                    Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
+                    DateTime dataPerEvento = DateTime.Now;
+                    try
+                    {
+                        dataPerEvento = DateTime.Parse(Console.ReadLine());
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                   
                     
 
                     Console.WriteLine("Inserisci la capienza massima di spettatori: ");
-                    int capienzaSpettatori = int.Parse(Console.ReadLine());
+                    int capienzaSpettatori = 0;
+                    try
+                    {
+                        capienzaSpettatori = int.Parse(Console.ReadLine());
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                        capienzaSpettatori = -2;
+                    }
+                   
 
                     Console.Clear();
-                    eventi.Add(new Evento(nome, dataPerAppuntamento, capienzaSpettatori));
+                    eventi.Add(new Evento(nome, dataPerEvento, capienzaSpettatori));
                 }
             }
         }

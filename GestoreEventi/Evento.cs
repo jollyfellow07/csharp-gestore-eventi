@@ -11,11 +11,11 @@ namespace GestoreEventi
         public string titolo { get; set; }
         public DateTime dataEvento { get; set; }
 
-        public readonly int postiTotali = 1000;
-        public int postiPrenotati = 0;
-        public int postiADisposizione;
+        private readonly int postiTotali = 1000;
+        private int postiPrenotati = 0;
+        private int postiADisposizione;
 
-        /******   COSTRUTTORE  *********/
+                                     /******   COSTRUTTORE  *********/
         public Evento(string titolo, DateTime dataEvento, int postiADisposizione)
         {
             this.titolo = titolo;
@@ -79,18 +79,31 @@ namespace GestoreEventi
             {
                 throw new ArgumentOutOfRangeException("postiADisposizione ", " non può essere un valore negativo");
             }
+            else if (postiADisposizione == -2)
+            {
+                postiADisposizione =int.Parse(Console.ReadLine());
+            }
 
         }
-                                                /******METODI*******/
+        /******METODI*******/
 
+       
         public int CambiaPostiADisposizione()
         {
             do
             {
-                Console.Write("Inserisci la nuova data per l'appuntamento: ");
-
-                int cambioPostiADisposizione = int.Parse(Console.ReadLine());
-
+                Console.Write("Inserisci di nuovo la quantita di capienza massima: ");
+                
+                int cambioPostiADisposizione = 0;
+                try
+                {
+                    cambioPostiADisposizione = int.Parse(Console.ReadLine());
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    cambioPostiADisposizione = -2;
+                }
 
 
                 this.postiADisposizione = cambioPostiADisposizione;
@@ -112,8 +125,8 @@ namespace GestoreEventi
             do
             {
                 Console.Write("Inserisci la nuova data per l'appuntamento: ");
-
                 DateTime cambioDellAppuntamento = DateTime.Parse(Console.ReadLine());
+               
 
 
 
@@ -145,7 +158,16 @@ namespace GestoreEventi
                     case "si":
                         int posti;
                         Console.Write("Inserisci quanti posti vuoi prenotare? : ");
-                        posti = int.Parse(Console.ReadLine());
+                        posti = 0;
+                        try
+                        {
+                            posti = int.Parse(Console.ReadLine());
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+                            
+                        }
                         //INSERISCO UN IF CHE MI CONFRONTA CON OP.LOGICI SE IL VALORE CHE INSERISCO RISPETTA LE CONDIZIONI
                         if (postiPrenotati < postiADisposizione && posti < postiADisposizione && posti > 0)
                              {
@@ -191,7 +213,16 @@ namespace GestoreEventi
                     case "si":
                         int posti;
                         Console.Write("Inserisci quanti posti vuoi disdire? : ");
-                        posti = int.Parse(Console.ReadLine());
+                        posti = 0;
+                        try
+                        {
+                            posti = int.Parse(Console.ReadLine());
+                        }
+                        catch (Exception e)
+                        {
+                            Console.WriteLine(e.Message);
+
+                        }
                         if (postiPrenotati < postiADisposizione && posti < postiADisposizione && posti > 0)
                         {
                             postiPrenotati = postiPrenotati - posti;
