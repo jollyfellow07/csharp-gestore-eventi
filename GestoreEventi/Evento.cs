@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestoreEventi
 {
-    internal class Evento
+    public class Evento
     {
         public string titolo { get; set; }
         public DateTime dataEvento { get; set; }
@@ -234,7 +234,7 @@ namespace GestoreEventi
 
             return postiPrenotati;
         }
-
+        //Stampa della mia lista
         public override string ToString()
         {
             string rappresentazioneInStringa = "";
