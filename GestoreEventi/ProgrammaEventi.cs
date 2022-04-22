@@ -72,28 +72,21 @@ namespace GestoreEventi
             }
             Console.WriteLine("Il numero di eventi nel programma è:  " + ( i ));
         }
-        /**********************************************************************************************************************************/
-        public void StampaSoloDateUguali()
+        /***************Metodo per stampare tutti gli eventi con la stessa data****************/
+        public void StampaSoloDateUguali(DateTime dataDaConfrontare)
         {
-            Console.WriteLine("ineserisci una data da confrontare con gli eventi programmati");
-            DateTime dataDaConfrontare = DateTime.Parse(Console.ReadLine());
-            int numberIndex = eventi.FindIndex(x => x.dataEvento == dataDaConfrontare); //PRENDO L'INDEX EVENTO CONFRONTANDO LE DATE
-            if (numberIndex == -1)
+            List<Evento> listaConfronto = new List<Evento>();
+            for (int i = 0 ; i < eventi.Count; i++)
             {
-                Console.WriteLine("mi dispiace ma non ci sono eventi programmati per questa data");
-            }
-            else
-            {
+                if (eventi[i].GetDataEvento() == dataDaConfrontare)
+                {
 
-            
-            Console.WriteLine("IN QUESTA DATA CI SARA' QUESTO EVENTO: ");
-            Console.WriteLine(eventi[numberIndex]);
-            Console.ReadKey();
+                        Console.WriteLine(eventi[i]);
+               
+              }
             }
-            
 
         }
-        /***********************************************************************************************************************************/
         //Metodo per cancellare la nostra lista
         public void CancellaEventi()
         {
@@ -126,3 +119,19 @@ namespace GestoreEventi
 
     }
 }
+/*
+Console.WriteLine("ineserisci una data da confrontare con gli eventi programmati");
+DateTime dataDaConfrontare = DateTime.Parse(Console.ReadLine());
+int numberIndex = eventi.FindIndex(x => x.dataEvento == dataDaConfrontare); //PRENDO L'INDEX EVENTO CONFRONTANDO LE DATE
+if (numberIndex == -1)
+{
+    Console.WriteLine("mi dispiace ma non ci sono eventi programmati per questa data");
+}
+else
+{
+
+
+    Console.WriteLine("IN QUESTA DATA CI SARA' QUESTO EVENTO: ");
+    Console.WriteLine(eventi[numberIndex]);
+    Console.ReadKey();
+}*/

@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using GestoreEventi;
 //setto il mio costruttore
-/*
+
 string nomeEvento;
 
 int capienzaEvento;
@@ -33,15 +33,17 @@ catch (ArgumentOutOfRangeException e)
     Console.WriteLine("Mi dispiace ma " + e.ParamName + " ha detto " + e.Message);
 
 }
-*/
+
 
 Console.WriteLine("Inserisci il nome del tuo programma Eventi");
 string nomeProgrammaEvento = Console.ReadLine();
 ProgrammaEventi tour = new ProgrammaEventi(nomeProgrammaEvento);
 tour.aggiungiPiuEventi();
 tour.StampaListaEventi();
-tour.StampaSoloDateUguali();
+Console.WriteLine("Inserisci una data da confrontare!");
+DateTime data = DateTime.Parse(Console.ReadLine());
 
+tour.StampaSoloDateUguali(data);
 Console.WriteLine("****************BONUS***************");
 //NOME CONFERENZA
 string nomeEventoConferenza;

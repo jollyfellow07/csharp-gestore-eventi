@@ -42,6 +42,11 @@ namespace GestoreEventi
         }
 
         /********  SETTER & GETTER    ******/
+        
+        public DateTime GetDataEvento()
+        {
+            return dataEvento;
+        }
 
         public int GetPostiPrenotati()
         {
@@ -228,9 +233,6 @@ namespace GestoreEventi
                         break;
                 }
             } while (condizione == true);
-
-
-
 
             return postiPrenotati;
         }
