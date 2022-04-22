@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestoreEventi 
 {
-    public class ProgrammaEventi
+    internal class ProgrammaEventi
     {
        private string titolo;
        private List<Evento> eventi = new List<Evento>();
@@ -56,7 +56,7 @@ namespace GestoreEventi
                    
                     
 
-                    Console.WriteLine("Inserisci la capienza massima di spettatori: ");
+                    Console.Write("Inserisci la capienza massima di spettatori: ");
                     int capienzaSpettatori = 0;
                     try
                     {
@@ -81,7 +81,7 @@ namespace GestoreEventi
                     eventi.Add(evento1);
         }
 
-        //ricontrollare metodo statico
+        //METODO CHE STAMPA LISTA EVENTI
         public void StampaListaEventi()
         {
             Console.WriteLine("Programma Evento: " + titolo);

@@ -79,10 +79,7 @@ namespace GestoreEventi
             {
                 throw new ArgumentOutOfRangeException("postiADisposizione ", " non può essere un valore negativo");
             }
-            else if (postiADisposizione == -2)
-            {
-                postiADisposizione =int.Parse(Console.ReadLine());
-            }
+            
 
         }
         /******METODI*******/
