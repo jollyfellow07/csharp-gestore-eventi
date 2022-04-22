@@ -13,8 +13,10 @@ namespace GestoreEventi
         
         public Conferenza(string titolo, DateTime dataEvento, int postiADisposizione, string relatore, double prezzo) : base(titolo, dataEvento, postiADisposizione)
         {
+            this.relatore = relatore;
             this.prezzo = prezzo;
         }
+        //Stampa della mia conferenza
         public override string ToString()
         {
             string rappresentazioneInStringa = "";

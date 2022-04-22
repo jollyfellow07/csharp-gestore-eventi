@@ -75,7 +75,6 @@ namespace GestoreEventi
         /***************Metodo per stampare tutti gli eventi con la stessa data****************/
         public void StampaSoloDateUguali(DateTime dataDaConfrontare)
         {
-            List<Evento> listaConfronto = new List<Evento>();
             for (int i = 0 ; i < eventi.Count; i++)
             {
                 if (eventi[i].GetDataEvento() == dataDaConfrontare)

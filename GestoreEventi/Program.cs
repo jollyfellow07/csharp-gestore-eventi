@@ -57,7 +57,7 @@ Console.Write("Capienza massima di persone che possono entrare: ");
 int capienzaEventoConferenza = int.Parse(Console.ReadLine());
 //NOME RELATORE
 Console.Write("Inserisci il relatore della conferenza: ");
-string nomeRelatore = Console.ReadLine();
+string? nomeRelatore = Console.ReadLine();
 //PREZZO BIGLIETTO IN EURO
 Console.Write("Inserisci il prezzo in euro (0.00): ");
 double prezzoBiglietto = double.Parse(Console.ReadLine());
